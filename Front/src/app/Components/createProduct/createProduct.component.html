@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="first col-6">
+      <h1 class="title">NOVO PRODUTO</h1>
+      <i class="box fas fa-box-open"></i>
+    </div>
+
+    <div class="sec col-6">
+      <form class="row form" [formGroup]="formulario" (submit)="productSubmit()">
+        <mat-form-field>
+          <input class="form-control" matInput placeholder="Marca" formControlName="marca">
+        </mat-form-field>
+        <mat-form-field>
+          <input class="form-control" matInput placeholder="Nome" formControlName="nome">
+        </mat-form-field>
+        <mat-form-field>
+          <input class="form-control" matInput placeholder="Preço (R$)" formControlName="preco">
+        </mat-form-field>
+        <mat-form-field>
+          <input class="form-control" matInput placeholder="Descrição" formControlName="descricao">
+        </mat-form-field>
+        <div>
+          <button class="btn btn-success" [disabled]="!formulario.valid">Cadastrar</button>
+          <button class="btn btn-primary" (click)="cancelar()">Cancelar</button>
+        </div>
+      </form>    
+    </div>
+  </div>
+</div>

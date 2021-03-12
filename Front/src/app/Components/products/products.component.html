@@ -1,0 +1,77 @@
+<div class="container">
+  <h1>{{title}}</h1>
+  <table class="table table-dark table-striped mat-elevation-z6">    
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">#</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Descrição</th>
+          <th scope="col">Opções</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of prod">
+          <td></td>
+          <th scope="row">{{item.id}}</th>
+          <td>{{item.marca}}</td>
+          <td>{{item.nome}}</td>
+          <td>R${{item.preco}}</td>
+          <td>{{item.descricao}}</td>
+          <td>
+            <div class="btn-group">
+              <button tooltip="Editar" class="btn btn-sm btn-warning" (click)="openModal(item)">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button class="btn btn-sm btn-danger" tooltip="Excluir" (click)="confirmMsg(item)" >
+                <i class="fa fa-eraser"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<!-- Delete -->
+<ng-template #msg>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja excluir este usuário?</p>
+    <button type="button" class="btn btn-sm btn-danger msgg" (click)="accept()">Sim</button>
+    <button type="button" class="btn btn-sm btn-outline-warning" (click)="modalRef.hide()">Não</button>
+  </div>
+</ng-template>
+
+<!-- Editar -->
+<ng-template #template>
+  <div class="modal-body text-center">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modalRef.hide()"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row form" [formGroup]="formulario" (submit)="productSubmit()">
+          <mat-form-field>
+            <input class="form-control" matInput placeholder="Marca" formControlName="marca">
+          </mat-form-field>
+          <mat-form-field>
+            <input class="form-control" matInput placeholder="Nome" formControlName="nome">
+          </mat-form-field>
+          <mat-form-field>
+            <input class="form-control" matInput placeholder="Preço (R$)" formControlName="preco">
+          </mat-form-field>
+          <mat-form-field>
+            <input class="form-control" matInput placeholder="Descrição" formControlName="descricao">
+          </mat-form-field>
+          <div>
+            <button class="btn btn-outline-danger" (click)="modalRef.hide()" >Cancelar</button>
+            <button class="btn btn-success" [disabled]="!formulario.valid">Confirmar</button>
+          </div>
+        </form> 
+      </div>
+    </div>
+  </div>
+</ng-template>
