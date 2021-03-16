@@ -44,6 +44,25 @@ export class ProductsComponent implements OnInit {
     );
   }
 
+  //PROCURANDO PRODUTOS 
+  produtosFiltrados: Product_model[];
+  _filtro: string;
+
+  get filtro(): string {
+    return this._filtro;
+  }
+  set filtro(value: string) {     
+    this._filtro = value;
+    this.produtosFiltrados = this.filtro ? this.filtrarProdutos(this.filtro) : this.prod;
+  }
+
+  filtrarProdutos(filtrarPor: string): any {
+    filtrarPor = filtrarPor.toLocaleLowerCase() 
+     return this.prod.filter(produto => { 
+       return produto.nome.toLocaleLowerCase().includes(filtrarPor) 
+   })
+  }
+
   //EXCLUINDO UM PRODUTO
   confirmMsg(prod) {
     this.idSelect = prod;
