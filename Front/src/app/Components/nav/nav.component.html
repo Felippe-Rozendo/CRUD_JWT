@@ -9,14 +9,14 @@
         <li class="nav-item dropdown">          
           <a class="nav-link" dropdownToggle id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            <span class="material-icons">menu</span>
+            <span class="material-icons">more_horiz</span>
           </a>
             <ul class="dropdown-menu dropdown-menu-dark mat-elevation-z6" *dropdownMenu
               aria-labelledby="navbarDarkDropdownMenuLink">
               <li class="mt-1"><a class="dropdown-item" routerLink="/product">Produtos</a></li>
               <li class="mt-1"><a class="dropdown-item" routerLink="/create">Cadastrar Produto</a></li>
               <li class="mt-1"><a class="dropdown-item" routerLink="/sobre">Sobre</a></li>
-              <li class="mt-1"><a class="dropdown-item" (click)="logout()">Sair</a></li>
+              <li class="mt-1"><a class="dropdown-item" (click)="logout()" style="cursor: pointer;">Sair</a></li>
             </ul>
         </li>
       </ul>
