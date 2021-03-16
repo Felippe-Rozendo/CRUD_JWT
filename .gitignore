@@ -47,7 +47,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
-App.db
 global.json
 Layout paint.png
 PROJETO CRUD.docx
