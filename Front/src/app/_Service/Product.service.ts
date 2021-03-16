@@ -14,6 +14,8 @@ import {
 })
 export class ProductService {
   
+  URL = `${environment.baseUrl}`
+  
   constructor(private http: HttpClient, private _snackBar: MatSnackBar) { }
   
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
@@ -34,8 +36,6 @@ export class ProductService {
       verticalPosition: this.verticalPosition,
     });
   }
-
-  URL = `${environment.baseUrl}`
 
   gelAll(): Observable<Product_model[]>{
     return this.http.get<Product_model[]>(`${this.URL}Product`);

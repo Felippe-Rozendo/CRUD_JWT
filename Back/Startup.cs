@@ -76,8 +76,6 @@ namespace Back
                     .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
                     .RequireAuthenticatedUser().Build());
             });
-
-
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

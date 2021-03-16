@@ -9,6 +9,9 @@ import { NavComponent } from "./Components/nav/nav.component";
 import { AboutComponent } from "./Components/about/about.component";
 import { CreateProductComponent } from "./Components/createProduct/createProduct.component";
 import { ProductsComponent } from "./Components/products/products.component";
+import { LoginComponent } from './Components/user/login/login.component';
+import { RegisterComponent } from './Components/user/register/register.component';
+import { UserComponent } from './Components/user/user.component';
 
 //DESIGNS
 import { MatCardModule } from '@angular/material/card';
@@ -18,10 +21,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,9 @@ import {MatMenuModule} from '@angular/material/menu';
     AboutComponent,
     CreateProductComponent,
     ProductsComponent,
+    LoginComponent,
+    RegisterComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
