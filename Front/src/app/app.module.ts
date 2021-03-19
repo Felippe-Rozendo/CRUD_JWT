@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from "@angular/common/http";
+import { AuthGuard } from "./Components/auth/auth.guard";
 
 //Components
 import { AppComponent } from './app.component';
@@ -54,7 +55,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSnackBarModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

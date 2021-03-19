@@ -8,6 +8,7 @@ import {
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -19,7 +20,7 @@ export class AuthService {
   jwtHelper = new JwtHelperService();
   decodedToken: any;
 
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) { }
+  constructor(private http: HttpClient, private _snackBar: MatSnackBar, private router : Router) { }
 
   horizontalPosition: MatSnackBarHorizontalPosition = 'end';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -58,7 +59,14 @@ export class AuthService {
 
   loggedIn() {
     const token = localStorage.getItem('token');
-    return !this.jwtHelper.isTokenExpired(token)
+    
+    if(this.jwtHelper.isTokenExpired(token)){
+      localStorage.removeItem('token');
+      localStorage.removeItem('username');
+     
+    }
+    
+    return !this.jwtHelper.isTokenExpired(token);
   }
 
 

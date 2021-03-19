@@ -14,14 +14,21 @@ export class NavComponent implements OnInit {
     public service: AuthService
   ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
   }
 
   loggedIn() {
+    for (let i = 0; i < 1; i++) {      
+      
+    }
     return this.service.loggedIn();
   }
+  
+  reload(){
+    return window.location.href = window.location.href
+  }
 
-  logout(){
+  logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('username');
     this.router.navigate(['/user/login']);

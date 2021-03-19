@@ -29,7 +29,7 @@ namespace Back
 
             //CONECTANDO O PROJETO COM O BANCO DE DADOS
             var connection = Configuration["ConnectionStrings:ConnStr"];
-            services.AddDbContext<LojaContext>( opt => opt.UseSqlite(connection));
+            services.AddDbContext<LojaContext>( opt => opt.UseSqlServer(connection));
 
             //NAO ESQUECER             
             services.AddScoped<IRepository, Repository.Repository>();
